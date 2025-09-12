@@ -1,6 +1,5 @@
 
 // const heading=React.createElement("h1",{},"HELLO WORLD USING REACT");
-
 /* <div id="parent">
     <div id="child">
         <h1>1st heading</h1>
