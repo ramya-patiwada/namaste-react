@@ -9,11 +9,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const parent=React.createElement("div",{id:"parent"},
-    React.createElement("div",{id:"child"},[React.createElement("h1",{},"1st heading"),
-    React.createElement("h1",{},"i am a sibling") 
-    ]));
+// const parent=React.createElement("div",{id:"parent"},
+//     React.createElement("div",{id:"child"},[React.createElement("h1",{},"1st heading"),
+//     React.createElement("h1",{},"i am a sibling") 
+//     ]));
 
-
+const heading=(<h1 id="head">
+    Hello world using JSX
+    </h1>);
 const root=ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+root.render(heading);

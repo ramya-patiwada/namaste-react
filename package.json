@@ -1,9 +1,62 @@
 {
-  "devDependencies": {
-    "parcel": "^2.15.4"
+
+  "scripts": {
+
+    "start": "parcel index.html",
+
+    "build": "parcel build index.html",
+
+    "test": "jest"
+
   },
+
+  "devDependencies": {
+
+    "parcel": "^2.15.4"
+
+  },
+
   "dependencies": {
+
     "react": "^19.1.1",
+
     "react-dom": "^19.1.1"
-  }
+
+  },
+
+  "name": "namasthe_react",
+
+  "version": "1.0.0",
+
+  "description": "learn react through namaste-react",
+
+  "repository": {
+
+    "type": "git",
+
+    "url": "git+https://github.com/ramya-patiwada/namaste-react.git"
+
+  },
+
+  "keywords": [
+
+    "react",
+
+    "reactdom"
+
+  ],
+
+  "author": "Ramya",
+
+  "license": "ISC",
+
+  "bugs": {
+
+    "url": "https://github.com/ramya-patiwada/namaste-react/issues"
+
+  },
+
+  "homepage": "https://github.com/ramya-patiwada/namaste-react#readme"
+
 }
+
