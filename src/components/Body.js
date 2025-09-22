@@ -1,20 +1,24 @@
 import Rescard from "./Rescard.js";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer.js";
-import Mock_Data from "../utils/Mock_Data.js"; // <-- import JSON
+//import Mock_Data from "../utils/Mock_Data.js"; // <-- import JSON
 import{Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus.js";
 
 const Body = () => {
   const [listofRestaurants, setlistofRestaurants] = useState([]);
   const [filteredRes, setFilteredRes] = useState([]);
   const [searchText, setSearchText] = useState("");
 
+   const onlineStatus=useOnlineStatus();
+
   useEffect(() => {
     fetchData();
   },[]);
 
   const fetchData=async ()=>{
-    const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.2873968&lng=83.8267367&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+   // const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.2873968&lng=83.8267367&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+   const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.418945&lng=78.4432214&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
     const json= await data.json();
   
     const restaurantCard = json?.data?.cards.find(
@@ -25,6 +29,7 @@ const restaurants = restaurantCard?.card?.card?.gridElements?.infoWithStyle?.res
 
 
 
+
     if (restaurants) {
       setlistofRestaurants(restaurants);
       setFilteredRes(restaurants);
@@ -32,9 +37,18 @@ const restaurants = restaurantCard?.card?.card?.gridElements?.infoWithStyle?.res
 }
 
 
+   if(!onlineStatus){
+     return (
+       <h1>You are offline!! Please check your internet connection</h1>
+     );
+  }
+
   if (!filteredRes || filteredRes.length === 0) {
     return <Shimmer />;
   }
+
+
+ 
 
   return (
     <div className="body">
